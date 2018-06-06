@@ -164,7 +164,7 @@ def final_model(input_dim, units, recur_layers, output_dim=29):
         
         """
         deep_bi_rnn = Bidirectional(GRU(units, activation='relu', return_sequences=True, 
-                 implementation=2, name=recur_layer_name, dropout_W=0.1, dropout_U=.2), merge_mode='concat')(recur_layer_data)
+                 implementation=2, name=recur_layer_name), merge_mode='concat')(recur_layer_data)
         bnn_layer_name = 'bnn_layer_' + str(recur_layer)
         # Batch normalization is included because we saw how effective this would be
         recur_layer_data = BatchNormalization(name=bnn_layer_name)(deep_bi_rnn)
